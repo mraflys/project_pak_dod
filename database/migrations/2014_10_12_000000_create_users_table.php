@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->tinyInteger('status')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('bagian_kerja')->references('id')->on('bagian_kerja')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

@@ -2,15 +2,16 @@
 
 namespace App;
 
-use App\Traits\Uuids;
+use App\Traits\Uuid;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Model\BagianKerja;
 
 class User extends Authenticatable
 {
     use Notifiable;
-
+    use Uuid;
     /**
      * The attributes that are mass assignable.
      *
@@ -37,4 +38,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function jenis_dokumen()
+    {
+        return $this->belongsTo(BagianKerja::class, 'bagian_kerja', 'id');
+    }
 }

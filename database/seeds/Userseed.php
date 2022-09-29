@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Model\BagianKerja;
 
 class Userseed extends Seeder
 {
@@ -11,6 +12,20 @@ class Userseed extends Seeder
      */
     public function run()
     {
-        //
+        BagianKerja::create([
+            'label' => 'Presiden',
+        ]);
+        BagianKerja::create([
+            'label' => 'DPR',
+        ]);
+        BagianKerja::create([
+            'label' => 'DPRD',
+        ]);
+        BagianKerja::create([
+            'label' => 'DPD',
+        ]);
+        BagianKerja::create([
+            'label' => 'MPR',
+        ]);
     }
 }
