@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>KMS</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -23,10 +23,25 @@
 </head>
 <body>
     <div id="app">
+        @guest
+        @else
+            <nav class="navbar navbar-expand-md bg-white navbar-light">
+                <div class="container">
+                    <ul class="nav">
+                        <li class="nav-item">
+                            <img width="200" src="{{asset('assets/images/Logo_of_the_Ministry_of_Health_of_the_Republic_of_Indonesia.png')}}" alt="location-team">
+                        </li>
+                        <li class="nav-item">
+                            <h3>Sekertariat Konsil Kedokteran Indonesia Knowlage Managment System (KMS)</h3>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        @endguest
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                <a class="navbar-brand" href="{{ url('/home') }}">
+                    KMS
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -51,6 +66,15 @@
                                 </li>
                             @endif
                         @else
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pengetahuan') }}">Kelola Pengetahuan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('pengetahuan.list') }}">Ubah Pengetahuan</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dokumen') }}">Kelola Dokumen</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}

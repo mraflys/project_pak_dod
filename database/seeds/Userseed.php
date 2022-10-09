@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Model\BagianKerja;
+use App\Model\JenisDokumen;
 
 class Userseed extends Seeder
 {
@@ -26,6 +27,14 @@ class Userseed extends Seeder
         ]);
         BagianKerja::create([
             'label' => 'MPR',
+        ]);
+        JenisDokumen::create([
+            'label' => 'Berkas file 1',
+            'value' => 'file1',
+        ]);
+        JenisDokumen::create([
+            'label' => 'Berkas file 2',
+            'value' => 'file2',
         ]);
     }
 }

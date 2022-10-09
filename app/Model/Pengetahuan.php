@@ -12,7 +12,7 @@ class Pengetahuan extends Model
     use Uuid;
     use SoftDeletes;
 
-    protected $table = 'komentar';
+    protected $table = 'pengetahuan';
     protected $fillable = ['user_id','judul','keterangan','jenis','berkas'];
 
     public function user()
