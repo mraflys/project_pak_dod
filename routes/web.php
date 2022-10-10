@@ -29,6 +29,8 @@ Route::group(['prefix' => 'pengetahuan', 'middleware' => []], function() {
 
     Route::post('/store', 'kelolaPengetahuanController@store')->name('pengetahuan.store');
 
+    Route::get('/detail/{id}{konteks}', 'kelolaPengetahuanController@detail')->name('pengetahuan.detail');
+
     Route::get('/delete/{id}', 'kelolaPengetahuanController@delete')->name('pengetahuan.delete');
 });
 

@@ -24,8 +24,8 @@
                                             </div>
                                             <div class="col">
                                                 <div class="float-right">
-                                                    <a href="" class="btn btn-outline-primary">Liat</a>
-                                                    <a href="#" class="btn btn-outline-secondary">Edit</a>
+                                                    <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                    <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
                                                     <a href="{{Route('pengetahuan.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
                                                 </div>
                                                 

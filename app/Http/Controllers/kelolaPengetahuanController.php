@@ -38,6 +38,19 @@ class kelolaPengetahuanController extends Controller
         return view('KMS.ubah', compact('pengetahuan','konteks'));
     }
 
+    public function detail(Request $req)
+    {
+        // dd($req->file('formFile')->getClientOriginalName());
+        $pengetahuan = Pengetahuan::where('id', $req->id)->delete();
+        // dd($pengetahuan);
+        if($req->konteks == 'liat'){
+            dd('liat');
+            return view('KMS.ubah', compact('pengetahuan','konteks'));
+        }else{
+            dd('edit');
+        }
+    }
+
     public function delete(Request $req)
     {
         // dd($req->file('formFile')->getClientOriginalName());
