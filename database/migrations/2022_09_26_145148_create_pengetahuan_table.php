@@ -17,7 +17,7 @@ class CreatePengetahuanTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('user_id');
             $table->string('judul');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->string('jenis');
             $table->string('berkas');
             $table->timestamps();

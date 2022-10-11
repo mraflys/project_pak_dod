@@ -18,7 +18,7 @@ class CreateDokumenTable extends Migration
             $table->uuid('user_id');
             $table->uuid('jenis_id');
             $table->string('judul');
-            $table->string('keterangan');
+            $table->text('keterangan');
             $table->string('berkas');
             $table->timestamps();
             $table->softDeletes();
