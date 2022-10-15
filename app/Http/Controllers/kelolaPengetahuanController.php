@@ -59,7 +59,7 @@ class kelolaPengetahuanController extends Controller
             // dd('liat');
             return view('KMS.detail_pengetahuan', compact('pengetahuan','konteks'));
         }else{
-            dd('edit');
+            return view('KMS.detail_pengetahuan', compact('pengetahuan','konteks'));
         }
     }
 
@@ -69,6 +69,49 @@ class kelolaPengetahuanController extends Controller
         $pengetahuan = Pengetahuan::where('id', $req->id)->first();
         // dd($pengetahuan);
         return Storage::disk('public')->download($pengetahuan->berkas);
+        
+    }
+
+    public function update(Request $req)
+    {
+        // dd($req->file('formFile')->getClientOriginalName());
+        $pengetahuan = Pengetahuan::where('id', $req->id)->first();
+        $pengetahuan->user_id = Auth::id();
+        $pengetahuan->judul = $req->judul;
+        $pengetahuan->keterangan = $req->keterangan;
+        $pengetahuan->jenis = $req->jenisPengetahuan;
+        $pengetahuan->berkas = $req->file('formFile')->getClientOriginalName();
+        $req->file('formFile')->move(public_path('storage/file'), $req->file('formFile')->getClientOriginalName());
+        $pengetahuan->save();
+
+        $konteks = $req->konteks;
+        if($req->konteks == 'liat'){
+            // dd('liat');
+            return redirect()->back()->with('success', 'Data Berhasil Di Update');
+        }else{
+            return redirect()->back()->with('success', 'Data Berhasil Di Update');
+        }
+    }
+
+    public function hapusfile(Request $req)
+    {
+        // dd($req->file('formFile')->getClientOriginalName());
+        $pengetahuan = Pengetahuan::where('id', $req->id)->first();
+        // dd($pengetahuan);
+
+        $pengetahuan->berkas = null;
+        
+        $pengetahuan->save();
+        $konteks = $req->konteks;
+
+        Storage::disk('public')->delete($pengetahuan->berkas);
+
+        if($req->konteks == 'liat'){
+            // dd('liat');
+            return redirect()->back()->with('success', 'Data Berhasil Dihapus');
+        }else{
+            return redirect()->back()->with('success', 'Data Berhasil Dihapus');
+        }
         
     }
 

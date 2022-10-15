@@ -19,7 +19,7 @@ class CreatePengetahuanTable extends Migration
             $table->string('judul');
             $table->text('keterangan');
             $table->string('jenis');
-            $table->string('berkas');
+            $table->string('berkas')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

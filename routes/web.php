@@ -33,6 +33,10 @@ Route::group(['prefix' => 'pengetahuan', 'middleware' => []], function() {
 
     Route::get('/download/{id}', 'kelolaPengetahuanController@download')->name('pengetahuan.download');
 
+    Route::get('/hapusfile/{id}/{konteks}', 'kelolaPengetahuanController@hapusfile')->name('pengetahuan.hapusfile');
+
+    Route::post('/update', 'kelolaPengetahuanController@update')->name('pengetahuan.update');
+
     Route::get('/delete/{id}', 'kelolaPengetahuanController@delete')->name('pengetahuan.delete');
 });
 
