@@ -68,7 +68,7 @@ class kelolaPengetahuanController extends Controller
         // dd($req->file('formFile')->getClientOriginalName());
         $pengetahuan = Pengetahuan::where('id', $req->id)->first();
         // dd($pengetahuan);
-        return Storage::disk('public')->download($pengetahuan->berkas);
+        return Storage::disk('public')->download('/file/'.$pengetahuan->berkas);
         
     }
 
@@ -80,8 +80,10 @@ class kelolaPengetahuanController extends Controller
         $pengetahuan->judul = $req->judul;
         $pengetahuan->keterangan = $req->keterangan;
         $pengetahuan->jenis = $req->jenisPengetahuan;
-        $pengetahuan->berkas = $req->file('formFile')->getClientOriginalName();
-        $req->file('formFile')->move(public_path('storage/file'), $req->file('formFile')->getClientOriginalName());
+        if(file_exists($req->file('formFile'))){
+            $pengetahuan->berkas = $req->file('formFile')->getClientOriginalName();
+            $req->file('formFile')->move(public_path('storage/file'), $req->file('formFile')->getClientOriginalName());
+        }
         $pengetahuan->save();
 
         $konteks = $req->konteks;
@@ -100,11 +102,9 @@ class kelolaPengetahuanController extends Controller
         // dd($pengetahuan);
 
         $pengetahuan->berkas = null;
-        
+        Storage::disk('public')->delete($pengetahuan->berkas);
         $pengetahuan->save();
         $konteks = $req->konteks;
-
-        Storage::disk('public')->delete($pengetahuan->berkas);
 
         if($req->konteks == 'liat'){
             // dd('liat');

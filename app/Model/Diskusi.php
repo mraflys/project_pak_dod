@@ -23,6 +23,6 @@ class Diskusi extends Model
 
     public function komentar()
     {
-        return $this->hasMany(Komentar::class, 'diskusi_id', 'id');
+        return $this->hasMany(Komentar::class, 'diskusi_id', 'id')->with('user');
     }
 }

@@ -23,11 +23,11 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="judul" class="form-label">Judul</label>
-                                <input type="text" name="judul" class="form-control" id="judul" placeholder="Judul">
+                                <input required type="text" name="judul" class="form-control" id="judul" placeholder="Judul">
                             </div>
                             <div class="mb-3">
                                 <label for="keterangan" class="form-label">Keterangan</label>
-                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+                                <textarea required class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="jenisPengetahuan" class="form-label">Jenis Pengetahuan</label>
@@ -41,7 +41,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">File</label>
-                                <input class="form-control" type="file" id="formFile" name="formFile">
+                                <input required class="form-control" type="file" id="formFile" name="formFile">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -73,11 +73,11 @@
                             @csrf
                             <div class="mb-3">
                                 <label for="judul" class="form-label">Judul</label>
-                                <input type="text" name="judul" class="form-control" id="judul" placeholder="Judul">
+                                <input required type="text" name="judul" class="form-control" id="judul" placeholder="Judul">
                             </div>
                             <div class="mb-3">
                                 <label for="keterangan" class="form-label">Keterangan</label>
-                                <textarea class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
+                                <textarea required class="form-control" id="keterangan" name="keterangan" rows="3"></textarea>
                             </div>
                             <div class="mb-3">
                                 <label for="jenisDokumen" class="form-label">Jenis Dokumen</label>
@@ -90,7 +90,50 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">File</label>
-                                <input class="form-control" type="file" id="formFile" name="formFile">
+                                <input required class="form-control" type="file" id="formFile" name="formFile">
+                            </div>
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+@elseif($konteks == 'diskusi')
+<div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Tambah Diskusi</div>
+
+                    <div class="card-body">
+                        @if (session('status'))
+                            <div class="alert alert-success" role="alert">
+                                {{ session('status') }}
+                            </div>
+                        @endif
+                        @if (\Session::has('success'))
+                            <div class="alert alert-success">
+                                {!! \Session::get('success') !!}
+                            </div>
+                        @endif
+                        <form method="POST" action="{{Route('diskusi.store')}}" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="judul" class="form-label">Judul</label>
+                                <input required type="text" name="judul" class="form-control" id="judul" placeholder="Judul">
+                            </div>
+                            <div class="mb-3">
+                                <label for="pertanyaan" class="form-label">Pertanyaan</label>
+                                <textarea required class="form-control" id="pertanyaan" name="pertanyaan" rows="3"></textarea>
+                            </div>
+                            <div class="mb-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select form-control" id="status" name="status" aria-label="Default select example">
+                                    <option value="1">Aktif</option>
+                                    <option value="0">Tidak Aktif</option>
+                                </select>
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>

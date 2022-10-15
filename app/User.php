@@ -39,7 +39,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function jenis_dokumen()
+    public function bagker()
     {
         return $this->belongsTo(BagianKerja::class, 'bagian_kerja', 'id');
     }

@@ -75,6 +75,15 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('dokumen') }}">Kelola Dokumen</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('dokumen.list') }}">Ubah Dokumen</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('diskusi.list') }}">Diskusi</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.list') }}">Pengguna</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
