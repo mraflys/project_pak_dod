@@ -21,12 +21,22 @@ class kelolaUserController extends Controller
         return view('KMS.ubah', compact('user','konteks'));
     }
 
-    public function index()
+    public function index(Request $req)
     {
-        $konteks = 'diskusi';
-        // dd($konteks);
-        $BagianKerja = BagianKerja::orderby('label','ASC')->get();
-        return view('KMS.tambah_user', compact('BagianKerja'));
+        if($req->konteks == 'tambah'){
+            $konteks = $req->konteks;
+            // dd($konteks);
+            $BagianKerja = BagianKerja::orderby('label','ASC')->get();
+            return view('KMS.tambah_user', compact('BagianKerja','konteks'));
+        }else{
+            
+            $user = User::where('id',$req->id)->first();
+            $konteks = $req->konteks;
+            // dd($konteks);
+            $BagianKerja = BagianKerja::orderby('label','ASC')->get();
+            return view('KMS.tambah_user', compact('BagianKerja','konteks','user'));
+        }
+        
     }
 
     public function store(Request $req){
@@ -42,6 +52,23 @@ class kelolaUserController extends Controller
         return redirect()->back()->with('success', 'User berhasil di input');
     }
 
+    public function update(Request $req)
+    {
+        // dd($req->file('formFile')->getClientOriginalName());
+        $user = User::where('id',$req->id)->first();
+        $user->name = $req->name;
+        $user->email = $req->email;
+        $user->bagian_kerja = $req->bagian_kerja;
+        if(is_null($req->password)||isset($req->password)){
+            $user->password = Hash::make($req->password);
+        }
+
+        $user->save();
+
+        $konteks = $req->konteks;
+        return redirect()->back()->with('success', 'Data Berhasil Di Update');
+    }
+
     public function delete(Request $req)
     {
         // dd($req->file('formFile')->getClientOriginalName());
@@ -49,5 +76,10 @@ class kelolaUserController extends Controller
         // dd($pengetahuan);
 
         return redirect()->back()->with('success', 'Data Berhasil Dihapus');
+    }
+
+    public function chat(Request $req)
+    {
+        return view('KMS.chat');
     }
 }

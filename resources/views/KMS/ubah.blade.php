@@ -155,7 +155,7 @@
                             </div>
                             <div class="col">
                                 <div class="float-right">
-                                    <a href="{{Route('user')}}" class="btn btn-outline-primary"><b>+</b> Tambah</a>
+                                    <a href="{{Route('user',['konteks' => 'tambah','id'=>'123'])}}" class="btn btn-outline-primary"><b>+</b> Tambah</a>
                                 </div>
                             </div>
                         </div>  
@@ -184,7 +184,7 @@
                                             @else
                                                 <td>Aktig</td>
                                             @endif
-                                            <td><a href="{{Route('user.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                            <td><a href="{{Route('user',['konteks' => 'edit','id' => $item->id])}}" class="btn btn-outline-secondary">Edit</a>
                                                 <a href="{{Route('user.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a></td>
                                         </tr>
                                     @endforeach  

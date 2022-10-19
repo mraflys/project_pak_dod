@@ -79,11 +79,13 @@ Route::group(['prefix' => 'diskusi', 'middleware' => []], function() {
 });
 
 Route::group(['prefix' => 'user', 'middleware' => []], function() {
-    Route::get('/index', 'kelolaUserController@index')->name('user');
+    Route::get('/index/{konteks}/{id}', 'kelolaUserController@index')->name('user');
 
     Route::get('/list', 'kelolaUserController@list')->name('user.list');
 
     Route::post('/store', 'kelolaUserController@store')->name('user.store');
+
+    Route::post('/update', 'kelolaUserController@update')->name('user.update');
 
     Route::get('/detail/{id}/{konteks}', 'kelolaUserController@detail')->name('user.detail');
 
@@ -92,4 +94,6 @@ Route::group(['prefix' => 'user', 'middleware' => []], function() {
     Route::post('/update', 'kelolaUserController@update')->name('user.update');
 
     Route::post('/store/komentar', 'kelolaUserController@store_komentar')->name('user.store.komentar');
+
+    Route::get('/chat', 'kelolaUserController@chat')->name('user.chat');
 });
