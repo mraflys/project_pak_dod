@@ -74,7 +74,7 @@
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">File</label>
                                 @if(is_null($dokumen->berkas) || $dokumen->berkas == '')
-                                    <input required class="form-control" type="file" id="formFile" name="formFile">
+                                    <input required class="form-control" type="file" accept="application/pdf,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint"id="formFile" name="formFile">
                                 @else
                                     <p>{{$dokumen->berkas}}</p>
                                     <a href="{{Route('dokumen.hapusfile',['id' => $dokumen->id,'konteks' => 'edit'])}}" class="btn btn-outline-danger">Hapus</a>

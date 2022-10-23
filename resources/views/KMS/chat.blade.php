@@ -11,6 +11,18 @@
             <div class="message border p-2 mb-3">
                 <p><span class="fw-bold">You >></span>Ya, Bagaimana caranya mengunduh dokumen</p>
             </div>
+            <div class="message border p-2 mb-3">
+                <p><span class="fw-bold">Andre >></span>Silahkan membuka List dokumaen dan download dokumen</p>
+            </div>
+            <div class="message border p-2 mb-3">
+                <p><span class="fw-bold">You >></span>Apakah Hanya itu?</p>
+            </div>
+            <div class="message border p-2 mb-3">
+                <p><span class="fw-bold">Andre >></span>Ya hanya itu</p>
+            </div>
+            <div class="message border p-2 mb-3">
+                <p><span class="fw-bold">You >></span>Oke Terimakasih</p>
+            </div>
         </div>
         <div class="container-input">
             <form action="" class="row px-2">
@@ -24,6 +36,22 @@
     <div class="user-message col-2" style="max-height: 80vh; overflow-y: scroll; overflow-x: hidden;">
         <div class="user-box d-flex align-items-center justify-content-between border border-start-0 border-end-0 py-2 px-5">
             <h1 class="fs-3">Andre</h1>
+            <div class="status bg-success rounded-circle col-1" style="width: 20px; height: 20px;"></div>
+        </div>
+        <div class="user-box d-flex align-items-center justify-content-between border border-start-0 border-end-0 py-2 px-5">
+            <h1 class="fs-3">Raihan</h1>
+            <div class="status bg-success rounded-circle col-1" style="width: 20px; height: 20px;"></div>
+        </div>
+        <div class="user-box d-flex align-items-center justify-content-between border border-start-0 border-end-0 py-2 px-5">
+            <h1 class="fs-3">Rana</h1>
+            <div class="status bg-success rounded-circle col-1" style="width: 20px; height: 20px;"></div>
+        </div>
+        <div class="user-box d-flex align-items-center justify-content-between border border-start-0 border-end-0 py-2 px-5">
+            <h1 class="fs-3">Rani</h1>
+            <div class="status bg-success rounded-circle col-1" style="width: 20px; height: 20px;"></div>
+        </div>
+        <div class="user-box d-flex align-items-center justify-content-between border border-start-0 border-end-0 py-2 px-5">
+            <h1 class="fs-3">Egi</h1>
             <div class="status bg-success rounded-circle col-1" style="width: 20px; height: 20px;"></div>
         </div>
     </div>

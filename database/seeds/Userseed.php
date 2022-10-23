@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use App\Model\BagianKerja;
 use App\Model\JenisDokumen;
-
+use App\User;
 class Userseed extends Seeder
 {
     /**
@@ -13,7 +13,7 @@ class Userseed extends Seeder
      */
     public function run()
     {
-        BagianKerja::create([
+        $bagianKerja = BagianKerja::create([
             'label' => 'Presiden',
         ]);
         BagianKerja::create([
@@ -35,6 +35,15 @@ class Userseed extends Seeder
         JenisDokumen::create([
             'label' => 'Berkas file 2',
             'value' => 'file2',
+        ]);
+
+        User::create([
+            'name' => 'administrator',
+            'email' => 'admin@admin.com',
+            'bagian_kerja' => $bagianKerja->id,
+            'status' => 1,
+            'role' => 0,
+            'password' => Hash::make('admin'),
         ]);
     }
 }

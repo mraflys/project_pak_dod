@@ -23,16 +23,31 @@
                                                 <h5 class="card-title">{{$item->judul}}</h5>
                                             </div>
                                             <div class="col">
-                                                <div class="float-right">
-                                                    <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
-                                                    <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
-                                                    <a href="{{Route('pengetahuan.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                <div class="float-end">
+                                                    @if(Auth::user()->role==0)
+                                                        <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                        <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                                        <a href="{{Route('pengetahuan.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                    @else
+                                                        @if(Auth::user()->id == $item->user_id)
+                                                            <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                            <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                                            <a href="{{Route('pengetahuan.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                        @else
+                                                            <a href="{{Route('pengetahuan.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                        @endif
+                                                    @endif
+                                                    
                                                 </div>
                                                 
                                             </div>
                                         </div>
                                         <div>
                                             <p class="card-text">{{$item->keterangan}}</p>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <p class="btn rounded-pill btn-outline-success">{{$item->jenis}}</p>
                                         </div>
                                     </li>
                                 @endforeach  
@@ -65,16 +80,31 @@
                                                 <h5 class="card-title">{{$item->judul}}</h5>
                                             </div>
                                             <div class="col">
-                                                <div class="float-right">
-                                                    <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
-                                                    <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
-                                                    <a href="{{Route('dokumen.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                <div class="float-end">
+                                                    @if(Auth::user()->role==0)
+                                                        <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                        <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                                        <a href="{{Route('dokumen.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                    @else
+                                                        @if(Auth::user()->id == $item->user_id)
+                                                            <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                            <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                                            <a href="{{Route('dokumen.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                        @else
+                                                            <a href="{{Route('dokumen.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                        @endif
+                                                    @endif
+                                                    
                                                 </div>
                                                 
                                             </div>
                                         </div>
                                         <div>
                                             <p class="card-text">{{$item->keterangan}}</p>
+                                        </div>
+                                        <div>
+                                            <br>
+                                            <p class="btn rounded-pill btn-outline-success">{{$item->jenis_dokumen->label}}</p>
                                         </div>
                                     </li>
                                 @endforeach  
@@ -101,7 +131,7 @@
                             <div class="col">
                             </div>
                             <div class="col">
-                                <div class="float-right">
+                                <div class="float-end">
                                     <a href="{{Route('diskusi')}}" class="btn btn-outline-primary"><b>+</b> Tambah</a>
                                 </div>
                             </div>
@@ -118,10 +148,20 @@
                                                 <h5 class="card-title">{{$item->judul}}</h5>
                                             </div>
                                             <div class="col">
-                                                <div class="float-right">
-                                                    <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
-                                                    <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
-                                                    <a href="{{Route('diskusi.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                <div class="float-end">
+                                                    @if(Auth::user()->role==0)
+                                                        <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                        <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                                        <a href="{{Route('diskusi.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                    @else
+                                                        @if(Auth::user()->id == $item->user_id)
+                                                            <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                            <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'edit'])}}" class="btn btn-outline-secondary">Edit</a>
+                                                            <a href="{{Route('diskusi.delete',['id' => $item->id])}}" class="btn btn-outline-danger">Hapus</a>
+                                                        @else
+                                                            <a href="{{Route('diskusi.detail',['id' => $item->id,'konteks' => 'liat'])}}" class="btn btn-outline-primary">Liat</a>
+                                                        @endif
+                                                    @endif
                                                 </div>
                                                 
                                             </div>
@@ -154,7 +194,7 @@
                             <div class="col">
                             </div>
                             <div class="col">
-                                <div class="float-right">
+                                <div class="float-end">
                                     <a href="{{Route('user',['konteks' => 'tambah','id'=>'123'])}}" class="btn btn-outline-primary"><b>+</b> Tambah</a>
                                 </div>
                             </div>

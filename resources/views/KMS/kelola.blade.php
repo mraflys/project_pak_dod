@@ -41,7 +41,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">File</label>
-                                <input required class="form-control" type="file" id="formFile" name="formFile">
+                                <input required class="form-control" type="file" accept="application/pdf,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint"id="formFile" name="formFile">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
@@ -90,7 +90,7 @@
                             </div>
                             <div class="mb-3">
                                 <label for="formFile" class="form-label">File</label>
-                                <input required class="form-control" type="file" id="formFile" name="formFile">
+                                <input required class="form-control" type="file" accept="application/pdf,application/msword,application/vnd.ms-excel,application/vnd.ms-powerpoint"id="formFile" name="formFile">
                             </div>
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
